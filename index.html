@@ -74,6 +74,8 @@ button.zoom:focus-visible { outline: 3px solid var(--salmon); outline-offset: -3
 .card header h2 { white-space: nowrap; font-size: 1.9cqw; }
 .card header span { white-space: nowrap; }
 button.zoom img { transition: transform .6s ease; }
+.mos { box-shadow: 0 1.2cqw 2.4cqw rgba(0,0,0,.08); }
+.cap { position: absolute; left: 1cqw; bottom: 1cqw; z-index: 2; font-size: .72cqw; font-weight: 500; letter-spacing: .04em; color: var(--ink); background: rgba(255,255,255,.82); padding: .3cqw .8cqw; border-radius: 99px; pointer-events: none; }
 button.zoom:hover img { transform: scale(1.02); }
 
 /* glass card */
@@ -329,11 +331,18 @@ button.zoom:hover img { transform: scale(1.02); }
 
   <section class="p" aria-label="TIAGo Pro details">
     <div class="tag"><span>TIAGo Pro</span><i></i><span>P/ 09</span></div>
-    <div class="trio">
-      <article class="card"><header><h2>Head LEDs</h2><span>Detail 1</span></header><div class="ph"><button class="zoom" data-full="img/tiago-d2.jpg" aria-label="Enlarge: head LEDs"><img src="img/tiago-d2.jpg" alt="Head with its LED light guide"></button></div></article>
-      <article class="card"><header><h2>Base vent</h2><span>Detail 2</span></header><div class="ph"><button class="zoom" data-full="img/tiago-d3.jpg" aria-label="Enlarge: base vent"><img src="img/tiago-d3.jpg" alt="Perforated ventilation grille on the base"></button></div></article>
-      <article class="card"><header><h2>Battery &amp; E-stop</h2><span>Detail 3</span></header><div class="ph"><button class="zoom" data-full="img/tiago-d1.jpg" aria-label="Enlarge: battery level and emergency stop"><img src="img/tiago-d1.jpg" alt="Battery level LEDs next to the red emergency stop" style="object-fit:contain"></button></div></article>
+    <!-- mosaic like the original portfolio page: two landscape details stacked on the left, the tall head detail on the right; every photo at its own proportions -->
+    <div class="txt" style="width:20cqw">
+      <h2>Details.</h2>
+      <p class="sub">“Every part has a job”</p>
+      <span class="bar"></span>
+      <p class="lbl">Base vent</p><p class="body">Perforated grille that cools the base without breaking its line.</p>
+      <p class="lbl">Battery &amp; E-stop</p><p class="body">Battery level LEDs beside an emergency stop that is easy to reach.</p>
+      <p class="lbl">Head LEDs</p><p class="body">Light guide that shows the robot's state at a glance.</p>
     </div>
+    <div class="img mos" style="left:37cqw;top:4cqw;width:31cqw;height:23.3cqw"><button class="zoom" data-full="img/tiago-d3.jpg" aria-label="Enlarge: base vent"><img src="img/tiago-d3.jpg" alt="Perforated ventilation grille on the base"></button><span class="cap">Base vent</span></div>
+    <div class="img mos" style="left:37cqw;top:28.9cqw;width:31cqw;height:23.3cqw"><button class="zoom" data-full="img/tiago-d1.jpg" aria-label="Enlarge: battery level and emergency stop"><img src="img/tiago-d1.jpg" alt="Battery level LEDs next to the red emergency stop"></button><span class="cap">Battery &amp; E-stop</span></div>
+    <div class="img mos" style="left:69.6cqw;top:4cqw;width:25.9cqw;height:48.2cqw"><button class="zoom" data-full="img/tiago-d2.jpg" aria-label="Enlarge: head LEDs"><img src="img/tiago-d2.jpg" alt="Head with its LED light guide"></button><span class="cap">Head LEDs</span></div>
   </section>
 
   <!-- ROBOCAT -->
@@ -376,7 +385,7 @@ button.zoom:hover img { transform: scale(1.02); }
       <p class="body">A service robot concept for assisted living that keeps interaction trustworthy and accessible.</p>
     </div>
     <!-- thirds: text | floating tray detail at its own proportions | robot full height to the right edge -->
-    <div class="img" style="top:50%;left:43cqw;width:19.5cqw;aspect-ratio:745/999;transform:translateY(-50%);box-shadow:0 2cqw 3cqw rgba(0,0,0,.12)"><button class="zoom" data-full="img/robocat-tray.jpg" aria-label="Enlarge: Robocat tray"><img src="img/robocat-tray.jpg" alt="Robocat tray carrying a cup and book"></button></div>
+    <div class="img" style="top:50%;left:41.5cqw;width:23cqw;aspect-ratio:600/999;transform:translateY(-50%);box-shadow:0 2cqw 3cqw rgba(0,0,0,.12)"><button class="zoom" data-full="img/robocat-tray-tall.jpg" aria-label="Enlarge: Robocat tray"><img src="img/robocat-tray-tall.jpg" alt="Robocat tray carrying a cup and book"></button></div>
     <div class="img" style="top:0;bottom:0;right:0;width:34cqw;height:100%"><button class="zoom" data-full="img/robocat-living.jpg" aria-label="Enlarge: Robocat at home"><img src="img/robocat-living.jpg" alt="Robocat in a living room next to a person reading" style="object-position:52% 50%"></button></div>
   </section>
 
