@@ -161,6 +161,29 @@ button.zoom:hover img { transform: scale(1.02); }
 .list b { font-weight: 500; display: block; }
 .list span { color: var(--body); font-weight: 300; }
 
+/* CV pages laid out like the original CV: header with contact, narrow left column, wide right column */
+.cvh { position: absolute; left: 13cqw; right: 6cqw; top: 3.6cqw; display: flex; justify-content: space-between; align-items: flex-end; gap: 3cqw; padding-bottom: 1.2cqw; border-bottom: 1px solid #dedfdd; }
+.cvh .nm { font-size: 2.4cqw; font-weight: 600; letter-spacing: .14em; line-height: 1.05; }
+.cvh .ti { font-size: .85cqw; color: var(--body); margin-top: .6cqw; }
+.cvh .ct { text-align: right; font-size: .76cqw; line-height: 1.6; color: var(--body); white-space: nowrap; }
+.cvh.small { align-items: baseline; }
+.cvh.small .nm { font-size: 1.3cqw; }
+.cvh.small .ti { margin: 0; }
+.cvg { position: absolute; left: 13cqw; right: 6cqw; top: 12.4cqw; bottom: 2.4cqw; display: grid; grid-template-columns: 21cqw minmax(0, 1fr); gap: 3.6cqw; }
+.cvg .col { min-width: 0; display: grid; align-content: start; gap: 1.3cqw; }
+.cvs { display: block; font-size: .66cqw; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: var(--salmon); margin: 0 0 .5cqw; }
+.cvt { font-size: .74cqw; font-weight: 300; line-height: 1.55; color: var(--body); margin: 0; }
+.cvt b { font-weight: 500; color: var(--ink); }
+.cvl { font-size: .74cqw; font-weight: 300; line-height: 1.5; color: var(--body); margin: .2cqw 0 0; padding-left: 1em; }
+.cvl li { margin-bottom: .1cqw; }
+.cvl li::marker { color: var(--salmon); }
+.cvj { font-size: 1.05cqw; font-weight: 600; margin: 0; }
+.cvr { font-size: .78cqw; font-weight: 500; margin: .15cqw 0 .4cqw; }
+.robots3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1cqw; }
+.robots3 > div { background: var(--white); padding: .9cqw 1cqw; }
+.robots3 b { display: block; font-size: .95cqw; font-weight: 600; margin: .1cqw 0 .3cqw; }
+.robots3 .cvs { margin: 0; font-size: .58cqw; color: var(--body); }
+
 /* contact */
 .contact { position: absolute; left: 13cqw; top: 50%; transform: translateY(-50%); width: 60cqw; }
 .contact h2 { font-size: 4.4cqw; font-weight: 600; color: #fff; }
@@ -480,105 +503,120 @@ button.zoom:hover img { transform: scale(1.02); }
     </div>
   </section>
 
-  <!-- CV -->
-  <section class="p" id="cv" aria-label="Curriculum, experience">
+  <!-- CV: same structure, order and wording as the original two-page CV -->
+  <section class="p" id="cv" aria-label="Curriculum, page 1">
     <div class="tag"><span>Curriculum</span><i></i><span>P/ 19</span></div>
-    <div class="cv-cols">
-      <div class="cv-col">
-        <div style="position:relative">
-          <div class="ghost" style="top:-5cqw">CV</div>
-          <h2 class="big" style="font-size:3.4cqw">Experience.</h2>
-          <p class="sub">Senior Industrial Designer, Robotics Hardware &amp; Product Development</p>
-          <span class="bar"></span>
+    <header class="cvh">
+      <div><div class="nm">TITO<br>FAVARO</div><div class="ti">Senior Industrial Designer — Robotics Hardware &amp; Product Development</div></div>
+      <div class="ct">(+34) 655 757 810<br>titofavaro@gmail.com<br>Barcelona, Spain<br>linkedin.com/in/titofavaro</div>
+    </header>
+    <div class="cvg">
+      <div class="col">
+        <div>
+          <h4 class="cvs">Technical skills</h4>
+          <p class="cvt"><b>Core strength: turning technology into commercial products</b></p>
         </div>
-        <p class="body" style="margin:0">Turning complex electromechanical systems into functional, manufacturable and user-centred products, from early concepts and prototypes to manufacturing.</p>
-        <div class="job">
-          <span class="when">2018 — NOW</span>
-          <h3>PAL Robotics · Barcelona</h3>
-          <p class="role">Senior Industrial Designer, Robotics Hardware</p>
-          <ul>
-            <li>Exterior hardware for humanoid, service and mobile-manipulation robots, concept to manufacturing</li>
-            <li>Integration of actuators, encoders, sensors, cameras, PCBs and computers</li>
-            <li>Class-A surfaces, enclosures, mechanical interfaces, complex CAD assemblies</li>
-            <li>DFMA for industrial 3D printing, CNC aluminium and sheet metal</li>
-            <li>Ergonomics, anthropometrics and physical human–robot interaction</li>
-            <li>Fewer parts and materials through modular, serviceable enclosures</li>
-          </ul>
+        <div><p class="cvt"><b>3D CAD &amp; Industrial Design</b></p>
+          <ul class="cvl"><li>Autodesk Alias — Class-A surfacing</li><li>SolidWorks — expert</li><li>AutoCAD · Rhino 3D · Grasshopper</li><li>CAD assemblies &amp; surface modeling</li></ul></div>
+        <div><p class="cvt"><b>Visual Communication</b></p>
+          <ul class="cvl"><li>Adobe Illustrator — expert</li><li>Adobe Photoshop — expert</li><li>Sketchbook Pro · Vizcom · rendering</li><li>Product visualization &amp; identity</li></ul></div>
+        <div><p class="cvt"><b>Product Engineering</b></p>
+          <ul class="cvl"><li>Electromechanical component integration</li><li>Mechanical packaging</li><li>Design for Manufacturing &amp; Assembly</li><li>Prototyping &amp; design iteration</li><li>FEM simulations · Magics Materialise</li><li>Ergonomics &amp; human factors</li></ul></div>
+        <div>
+          <h4 class="cvs">Languages</h4>
+          <p class="cvt">Spanish — native<br>English — professional working proficiency</p>
         </div>
       </div>
-      <div class="cv-col">
-        <div class="job">
-          <span class="when">2017 — 2018</span>
-          <h3>Hewlett-Packard (HP) · Sant Cugat</h3>
-          <p class="role">Customer Experience Design Lead, Ergonomics</p>
-          <ul>
-            <li>Human factors lead for Large Format and Multi Jet Fusion 3D printers</li>
-            <li>Usability clinics for HMI concepts and physical interaction</li>
-            <li>Early ergonomic validation that reduced late-stage changes</li>
+      <div class="col">
+        <div>
+          <h4 class="cvs">Profile</h4>
+          <p class="cvt">Senior Industrial Designer specializing in robotics hardware and physical product development, with extensive experience transforming complex electromechanical systems into functional, manufacturable and user-centered products. Experienced in humanoid and service robotics, advanced CAD surfacing, mechanical packaging, ergonomics and multidisciplinary engineering collaboration. Skilled at bridging industrial design and engineering from early concepts and prototypes through product development and manufacturing preparation.</p>
+        </div>
+        <div>
+          <h4 class="cvs">Professional experience</h4>
+          <p class="cvj">PAL Robotics | 2018 – Present</p>
+          <p class="cvr">Senior Industrial Designer – Robotics Hardware &amp; Product Development · Barcelona</p>
+          <p class="cvt">Project-based contract as Senior Industrial Designer (Oct 2018 – Sep 2019) → in-house Senior Robotics Hardware Designer (Sep 2019 – Present)</p>
+          <p class="cvt" style="margin-top:.6cqw">Industrial design and physical product development of humanoid, service and mobile-manipulation robots, owning exterior hardware design from early concepts and functional prototypes toward manufacturing.</p>
+          <ul class="cvl" style="margin-top:.6cqw">
+            <li>Integration of actuators, encoders, sensors, cameras, PCBs and computers into robot architectures</li>
+            <li>Exterior enclosures, mechanical interfaces and Class-A surfaces; CAD surfacing and complex assemblies</li>
+            <li>DFMA for industrial 3D printing, CNC aluminum and sheet metal; prototyping, accessibility and maintainability</li>
+            <li>Ergonomics, anthropometrics and Physical Human–Robot Interaction; product identity, proportions and formal language across platforms</li>
+            <li>Close collaboration with mechanical, electronics, control, navigation and HRI teams, balancing engineering constraints with user interaction, visual quality, cost and production requirements</li>
+            <li>Contributed to multiple commercial robots; fewer parts and materials through modular, serviceable enclosures</li>
           </ul>
         </div>
-        <div class="job">
-          <span class="when">2015 — 2017</span>
-          <h3>IDEADED · Barcelona</h3>
-          <p class="role">Strategic Industrial Designer, R&amp;D</p>
-          <ul>
-            <li>Future intelligent machinery, from user needs to product architecture</li>
-            <li>Use cases, workflows and hardware specifications</li>
-          </ul>
-        </div>
-        <div class="job">
-          <span class="when">2007 — 2018</span>
-          <h3>Universitat Ramon Llull · ESDi</h3>
-          <p class="role">Product Design &amp; Applied Research Lead, Guest Lecturer</p>
-          <p>Also IED, ATP and UAB. URUS urban robots (IRI/UPC) and eco-designed cleaning trolleys, 80 units deployed.</p>
-        </div>
-        <div class="job">
-          <span class="when">2006 — 2015</span>
-          <h3>Earlier</h3>
-          <p>Xavier Garcia Barcelona, eyewear · ADI-FAD board member · CAF, human factors in rail · Applus+, 3D printing · EVALUZ, lighting · GAIG TOUS, jewellery</p>
+        <div class="robots3">
+          <div><span class="cvs">Social robot</span><b>ARI</b><p class="cvt">Design and product development, integrating appearance, ergonomics and engineering requirements.</p></div>
+          <div><span class="cvs">Mobile manipulator</span><b>TIAGo Pro</b><p class="cvt">Arm architecture, component integration, accessibility and ergonomics, in close collaboration with engineering teams.</p></div>
+          <div><span class="cvs">Bipedal robot</span><b>Kangaroo</b><p class="cvt">External design, proportions, actuator integration, cable management and mechanical packaging.</p></div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="p" aria-label="Curriculum, skills and education">
+  <section class="p" aria-label="Curriculum, page 2">
     <div class="tag"><span>Curriculum</span><i></i><span>P/ 20</span></div>
-    <div class="cv-cols three">
-      <div class="cv-col">
-        <h2>Skills.</h2>
-        <p class="sub" style="margin:0">Turning technology into commercial products</p>
-        <p class="lbl" style="margin:0">3D CAD &amp; Industrial Design</p>
-        <div class="chips"><span>Alias · Class-A</span><span>SolidWorks · expert</span><span>AutoCAD</span><span>Rhino 3D</span><span>Grasshopper</span><span>Surface modelling</span></div>
-        <p class="lbl" style="margin:0">Visual Communication</p>
-        <div class="chips"><span>Illustrator · expert</span><span>Photoshop · expert</span><span>Sketchbook Pro</span><span>Vizcom</span><span>Rendering</span></div>
-        <p class="lbl" style="margin:0">Product Engineering</p>
-        <div class="chips"><span>Electromechanical integration</span><span>Mechanical packaging</span><span>DFMA</span><span>Prototyping</span><span>FEM</span><span>Magics Materialise</span><span>Human factors</span></div>
+    <header class="cvh small">
+      <div class="nm">TITO FAVARO</div>
+      <div class="ti">Senior Industrial Designer — Robotics Hardware &amp; Product Development</div>
+    </header>
+    <div class="cvg" style="top:9cqw">
+      <div class="col">
+        <div>
+          <h4 class="cvs">Education</h4>
+          <p class="cvt"><b>Degree in Industrial Design</b><br>Universitat Ramon Llull | 1999 – 2006</p>
+          <p class="cvt" style="margin-top:.6cqw"><b>Official Master’s, Art &amp; Design Curating in New Media</b><br>Universitat Ramon Llull | 2013 – 2014</p>
+          <p class="cvt" style="margin-top:.6cqw"><b>HCI &amp; Interaction Design</b><br>Stanford University (Coursera) | 2012 – 2013</p>
+        </div>
+        <div>
+          <h4 class="cvs">Academic &amp; teaching</h4>
+          <p class="cvt"><b>Universitat Ramon Llull | 2007 – 2018</b><br>Product Design &amp; Applied Research Lead and Guest Lecturer in Applied Ergonomics &amp; Product Design · ESDi (Escola Superior de Disseny), also IED, ATP and UAB · applied research incl. URUS urban robots (IRI/UPC) and eco-designed cleaning trolleys, 80 units deployed</p>
+        </div>
+        <div>
+          <h4 class="cvs">Awards</h4>
+          <p class="cvt">DxR Design for Recycling Award | 2011<br>ADI-FAD Medal, top 10 final projects | 2005<br>DuPont Imagineering Design Awards | 2004</p>
+        </div>
+        <div>
+          <h4 class="cvs">Publications</h4>
+          <p class="cvt"><b>Design of Social Robot</b><br>Chapter in “Design, Knowledge &amp; Future”</p>
+          <p class="cvt" style="margin-top:.6cqw"><b>Tibi and Dabo: Designing Robots for Public Space in Barcelona</b><br>CIDIC Congress of Design &amp; Innovation</p>
+          <p class="cvt" style="margin-top:.6cqw"><b>Additive Manufacturing as a Basis for Digital Production 2.0</b><br>COTEC Foundation, Madrid | 2011</p>
+        </div>
       </div>
-      <div class="cv-col">
-        <h2>Education.</h2>
-        <div class="list">
-          <div><b>Degree in Industrial Design</b><span>Universitat Ramon Llull · 1999–2006</span></div>
-          <div><b>Official Master's, Art &amp; Design Curating in New Media</b><span>Universitat Ramon Llull · 2013–2014</span></div>
-          <div><b>HCI &amp; Interaction Design</b><span>Stanford University (Coursera) · 2012–2013</span></div>
+      <div class="col">
+        <div>
+          <h4 class="cvs">Professional experience</h4>
+          <p class="cvj">Hewlett-Packard (HP) | 2017 – 2018</p>
+          <p class="cvr">Customer Experience Design Lead — Ergonomics · Sant Cugat del Vallès</p>
+          <p class="cvt">Contractor through Nacar Design, engaged to improve ergonomics and industrial design for HP</p>
+          <p class="cvt" style="margin-top:.6cqw">Led Human Factors and Ergonomics activities for Large Format Printers and Multi Jet Fusion 3D printing platforms within multidisciplinary product-development teams.</p>
+          <ul class="cvl" style="margin-top:.6cqw">
+            <li>Single point of contact for ergonomic attributes across the Large Format and 3D Printing divisions</li>
+            <li>User research and usability clinics to evaluate HMI concepts and physical interaction with hardware</li>
+            <li>Translated research, benchmarking and standards into actionable product and design requirements</li>
+            <li>Worked with Industrial Design, Customer Experience, Mechanical, Electronics and Release teams to resolve ergonomic issues</li>
+            <li>Early ergonomic validation that reduced late-stage design changes</li>
+          </ul>
         </div>
-        <h2 style="margin-top:1.4cqw">Awards.</h2>
-        <div class="list">
-          <div><b>DxR Design for Recycling Award</b><span>2011</span></div>
-          <div><b>ADI-FAD Medal, top 10 final projects</b><span>2005</span></div>
-          <div><b>DuPont Imagineering Design Awards</b><span>2004</span></div>
+        <div>
+          <p class="cvj">IDEADED | 2015 – 2017</p>
+          <p class="cvr">Strategic Industrial Designer — R&amp;D · Barcelona · Full-time</p>
+          <p class="cvt">Strategic industrial design for future intelligent machinery concepts, translating user needs into product architectures and system-level solutions with R&amp;D, engineering and marketing.</p>
+          <ul class="cvl" style="margin-top:.6cqw">
+            <li>Turned user insights into use cases, workflows and hardware specifications</li>
+            <li>Coordinated multidisciplinary teams from concept through validation</li>
+          </ul>
         </div>
-      </div>
-      <div class="cv-col">
-        <h2>Publications.</h2>
-        <div class="list">
-          <div><b>Design of Social Robot</b><span>Chapter in “Design, Knowledge &amp; Future”</span></div>
-          <div><b>Tibi and Dabo: Designing Robots for Public Space in Barcelona</b><span>CIDIC Congress of Design &amp; Innovation</span></div>
-          <div><b>Additive Manufacturing as a Basis for Digital Production 2.0</b><span>COTEC Foundation, Madrid · 2011</span></div>
-        </div>
-        <h2 style="margin-top:1.4cqw">Languages.</h2>
-        <div class="list">
-          <div><b>Spanish</b><span>Native</span></div>
-          <div><b>English</b><span>Professional working proficiency</span></div>
+        <div>
+          <h4 class="cvs">Earlier professional experience | 2006 – 2015</h4>
+          <p class="cvt"><b>Xavier Garcia Barcelona | 2013 – 2015</b> Eyewear Designer — metal collections, facial ergonomics, 3D printing<br>
+          <b>ADI-FAD | 2010 – 2011</b> Board Member — industrial design association; Delta Awards juror (2013)<br>
+          <b>CAF – Construcciones y Auxiliar de Ferrocarriles | 2009</b> Human Factors Design Consultant — rail-sector ergonomics<br>
+          <b>Applus+ | 2006 – 2007</b> 3D Printing Engineer — 3D modeling, process and material selection, Magics Materialise<br>
+          <b>EVALUZ | 2006</b> Lighting Designer<br>
+          <b>GAIG TOUS, SL | 2006</b> Jewelry Designer — design, prototypes and production tracking</p>
         </div>
       </div>
     </div>
