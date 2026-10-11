@@ -99,33 +99,32 @@ button.zoom:hover img { transform: scale(1.02); }
 .blob { position: absolute; border-radius: 50%; filter: blur(7cqw); }
 .cover-word { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); font-size: 7cqw; font-weight: 600; letter-spacing: .06em; color: var(--salmon); filter: blur(.18cqw); opacity: .92; white-space: nowrap; }
 
-/* animated cover: drifting, colour-shifting light behind two words that take turns coming into focus (16s loop) */
+/* animated cover: the title stays still and centred; coloured lights drift behind it and show through the letters.
+   Two copies of the title: a faint base so it always reads, and a white copy blended with "overlay"
+   that lights up in the colour of whatever light is passing behind it. */
+.cover { isolation: isolate; }
 .cover .blob { will-change: transform, background-color; }
-.cover .b1 { animation: drift1 16s ease-in-out infinite alternate, tint1 16s linear infinite; }
-.cover .b2 { animation: drift2 13s ease-in-out infinite alternate, tint2 16s linear infinite; }
-.cover .b3 { animation: drift3 11s ease-in-out infinite alternate, tint3 16s linear infinite; }
-.cover .b4 { animation: drift4 18s ease-in-out infinite alternate; }
-@keyframes drift1 { from { transform: translate(0, 0) scale(1); } to { transform: translate(-10cqw, 6cqw) scale(1.25); } }
-@keyframes drift2 { from { transform: translate(0, 0) scale(1); } to { transform: translate(16cqw, -8cqw) scale(1.4); } }
-@keyframes drift3 { from { transform: translate(0, 0) scale(1.1); } to { transform: translate(-14cqw, -4cqw) scale(.85); } }
-@keyframes drift4 { from { transform: translate(0, 0); } to { transform: translate(-30cqw, 10cqw); } }
+.cover .b1 { animation: drift1 14s ease-in-out infinite alternate, tint1 18s linear infinite; }
+.cover .b2 { animation: drift2 11s ease-in-out infinite alternate, tint2 18s linear infinite; }
+.cover .b3 { animation: drift3 9s ease-in-out infinite alternate, tint3 18s linear infinite; }
+.cover .b4 { animation: drift4 16s ease-in-out infinite alternate, tint2 18s linear infinite reverse; }
+@keyframes drift1 { from { transform: translate(-14cqw, 4cqw) scale(1); } to { transform: translate(14cqw, -2cqw) scale(1.25); } }
+@keyframes drift2 { from { transform: translate(-6cqw, 0) scale(1); } to { transform: translate(34cqw, -6cqw) scale(1.4); } }
+@keyframes drift3 { from { transform: translate(8cqw, 0) scale(1.1); } to { transform: translate(-30cqw, -4cqw) scale(.9); } }
+@keyframes drift4 { from { transform: translate(0, 0); } to { transform: translate(-46cqw, 22cqw); } }
 @keyframes tint1 { 0%, 100% { background-color: #f08a6a; } 33% { background-color: #d9605a; } 66% { background-color: #f3b07a; } }
 @keyframes tint2 { 0%, 100% { background-color: #2f6f86; } 50% { background-color: #4b5fa8; } }
 @keyframes tint3 { 0%, 100% { background-color: #f3c9a8; } 50% { background-color: #8fd0c8; } }
-.cover .cover-word { opacity: 0; animation: wordFocus 16s cubic-bezier(.2, .7, .2, 1) infinite both; }
-.cover .cover-word.name { animation-delay: 8s; font-weight: 400; font-style: italic; letter-spacing: .02em; color: #f6efe9; }
-.cover .cover-word.name b { font-weight: 600; font-style: normal; color: var(--salmon); }
-@keyframes wordFocus {
-  0%   { opacity: 0;   filter: blur(3cqw);   transform: translate(-50%, -50%) scale(1.08); letter-spacing: .3em; }
-  14%  { opacity: .95; filter: blur(.12cqw); transform: translate(-50%, -50%) scale(1);    letter-spacing: .06em; }
-  38%  { opacity: .95; filter: blur(.12cqw); transform: translate(-50%, -50%) scale(1);    letter-spacing: .06em; }
-  50%  { opacity: 0;   filter: blur(3cqw);   transform: translate(-50%, -50%) scale(.96);  letter-spacing: .02em; }
-  100% { opacity: 0;   filter: blur(3cqw);   transform: translate(-50%, -50%) scale(.96); }
-}
+.cover-title { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); margin: 0; font: inherit; text-align: center; white-space: nowrap; z-index: 2; pointer-events: none; }
+.cover-title .ct-word { display: block; font-size: 9cqw; font-weight: 700; letter-spacing: .07em; line-height: 1; margin-right: -.07em; }
+.cover-title .ct-name { font-size: 1.9cqw; margin-top: 1.6cqw; letter-spacing: .03em; }
+.cover-title .ct-name i { font-weight: 400; }
+.cover-title .ct-name b { font-weight: 600; }
+.cover-title.base { color: rgba(238, 241, 242, .16); }
+.cover-title.glow { color: #fff; mix-blend-mode: overlay; }
+.cover-title.glow .ct-name { color: #fff; }
 @media (prefers-reduced-motion: reduce) {
   .cover .blob { animation: none; }
-  .cover .cover-word { animation: none; opacity: .92; filter: blur(.12cqw); }
-  .cover .cover-word.name { display: none; }
 }
 .cover-sign { position: absolute; left: 4cqw; bottom: 3.6cqw; font-size: .8cqw; line-height: 1.6; color: #8ea2ac; }
 .cover-sign b { display: block; color: #eef1f2; font-size: 1.05cqw; font-weight: 600; letter-spacing: .02em; }
@@ -197,9 +196,9 @@ button.zoom:hover img { transform: scale(1.02); }
     <div class="blob b2" style="left:24cqw;top:20cqw;width:22cqw;height:22cqw;background:#2f6f86;opacity:.6"></div>
     <div class="blob b3" style="left:58cqw;top:24cqw;width:20cqw;height:20cqw;background:#f3c9a8;opacity:.35"></div>
     <div class="blob b4" style="left:78cqw;top:-6cqw;width:18cqw;height:18cqw;background:#6b4c8a;opacity:.3"></div>
-    <div class="cover-word">PORTFOLIO</div>
-    <div class="cover-word name" aria-hidden="true">Tito <b>Favaro</b></div>
-    <div class="cover-sign"><b>Tito FAVARO</b>Robotic Hardware Product Designer<br>Industrial Design · Human Factors · Robotics<br>— 2026 —</div>
+    <h1 class="cover-title base"><span class="ct-word">PORTFOLIO</span><span class="ct-name" style="display:block"><i>Tito</i> <b>Favaro</b></span></h1>
+    <div class="cover-title glow" aria-hidden="true"><span class="ct-word">PORTFOLIO</span><span class="ct-name" style="display:block"><i>Tito</i> <b>Favaro</b></span></div>
+    <div class="cover-sign">Robotic Hardware Product Designer<br>Industrial Design · Human Factors · Robotics<br>— 2026 —</div>
   </section>
 
   <!-- P/02 intro -->
