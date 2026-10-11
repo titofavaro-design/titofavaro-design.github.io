@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Tito Favaro, Robotic Hardware Product Designer. Portfolio and CV: Kangaroo, TIAGo Pro, Robocat, ARI, IVO.">
+<style>body{margin:0}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}[hidden]{display:none!important}</style>
+<title>Tito Favaro — Robotics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500;1,700;1,800&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one long dossier — dark brand hero, case studies as alternating spec-sheet rows, CV as a two-column record, contact footer. Brand taken from Tito's own portfolio (deep teal-navy + salmon). */
+:root {
+  --bg: #13222a;
+  --bg-2: #192d37;
+  --panel: #e6e8e9;
+  --fg: #eef1f2;
+  --fg-dim: #9fb0b8;
+  --line: #2b4250;
+  --accent: #f08a6a;
+  --ink: #1b1f22;
+  --ink-dim: #4c5459;
+  --f-display: "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif;
+  --f-body: "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --gutter: clamp(16px, 5vw, 72px);
+  --max: 1240px;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
+body { background: var(--bg); color: var(--fg); font-family: var(--f-body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+img { display: block; max-width: 100%; height: auto; }
+.wrap { max-width: var(--max); margin-inline: auto; padding-inline: var(--gutter); }
+.label { font-family: var(--f-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-dim); }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; }
+
+/* nav */
+.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; }
+.brand { font-weight: 700; color: var(--accent); text-decoration: none; letter-spacing: .02em; }
+.nav ul { display: flex; gap: clamp(14px, 3vw, 32px); list-style: none; margin: 0; padding: 0; }
+.nav ul a { text-decoration: none; font-size: 14px; color: var(--fg-dim); }
+.nav ul a:hover { color: var(--fg); }
+
+/* hero */
+.hero { position: relative; overflow: hidden; }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: 32px; align-items: end; padding-block: clamp(48px, 9vw, 110px) 0; }
+.hero-tags { display: grid; gap: 6px; margin-bottom: clamp(40px, 7vw, 80px); }
+.hero h1 { font-size: clamp(64px, 11vw, 148px); font-weight: 800; font-style: italic; color: var(--accent); line-height: .95; letter-spacing: -.03em; }
+.hero .lede { font-size: clamp(20px, 2.4vw, 30px); font-weight: 700; font-style: italic; line-height: 1.3; margin: 18px 0 0; max-width: 24ch; }
+.facts { display: flex; flex-wrap: wrap; gap: 10px 28px; margin: 36px 0 clamp(40px, 6vw, 72px); padding: 0; list-style: none; }
+.facts li { display: grid; gap: 2px; }
+.facts b { font-weight: 600; font-size: 15px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: clamp(48px, 7vw, 90px); }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 20px; border-radius: 999px; font: 600 14px var(--f-body); text-decoration: none; border: 1px solid var(--accent); cursor: pointer; }
+.btn.primary { background: var(--accent); color: var(--bg); }
+.btn.ghost { background: transparent; color: var(--fg); border-color: var(--line); }
+.btn:hover { filter: brightness(1.08); }
+.hero-bot { align-self: end; justify-self: end; width: min(100%, 460px); }
+
+/* index strip */
+.index { border-block: 1px solid var(--line); background: var(--bg-2); }
+.index ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); }
+.index li { border-left: 1px solid var(--line); }
+.index li:first-child { border-left: 0; }
+.index a { display: grid; gap: 4px; padding: 18px 16px; text-decoration: none; height: 100%; }
+.index a:hover { background: var(--bg); }
+.index .yr { font-family: var(--f-mono); font-size: 12px; color: var(--accent); font-variant-numeric: tabular-nums; }
+.index .nm { font-weight: 700; font-size: 15px; line-height: 1.2; }
+.index .ty { font-size: 12.5px; color: var(--fg-dim); line-height: 1.35; }
+
+/* section heads */
+.sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-block: clamp(56px, 8vw, 100px) 28px; }
+.sec-head h2 { font-size: clamp(32px, 5vw, 56px); font-weight: 800; letter-spacing: -.02em; }
+
+/* case studies */
+.case { padding-block: clamp(40px, 6vw, 72px); border-top: 1px solid var(--line); }
+.case-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(24px, 4vw, 56px); align-items: start; }
+.case:nth-of-type(even) .case-text { order: 2; }
+.case-text { min-width: 0; }
+.case h3 { font-size: clamp(40px, 6vw, 72px); font-weight: 800; letter-spacing: -.025em; line-height: 1; }
+.case .sub { font-weight: 600; margin: 10px 0 0; color: var(--fg); }
+.meta { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 26px; padding: 0; list-style: none; }
+.meta li { font-family: var(--f-mono); font-size: 12px; padding: 4px 10px; border: 1px solid var(--line); border-radius: 999px; color: var(--fg-dim); }
+.meta li.yr { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); }
+dl.spec { margin: 0; display: grid; gap: 18px; }
+dl.spec dt { font-family: var(--f-mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
+dl.spec dd { margin: 0; color: var(--fg); max-width: 60ch; }
+dl.spec ul { margin: 0; padding-left: 1.1em; }
+dl.spec li { margin-bottom: 3px; }
+dl.spec li::marker { color: var(--fg-dim); }
+.kpis { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 10px; }
+.kpi { border: 1px solid var(--line); border-radius: 6px; padding: 10px 12px; }
+.kpi b { display: block; font-size: 26px; font-weight: 800; color: var(--accent); line-height: 1.1; font-variant-numeric: tabular-nums; }
+.kpi span { font-size: 12.5px; color: var(--fg-dim); line-height: 1.35; display: block; }
+.media { min-width: 0; display: grid; gap: 10px; }
+.media .main { border-radius: 6px; overflow: hidden; background: var(--panel); }
+.thumbs { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; }
+.thumbs button, .media .main button { all: unset; cursor: zoom-in; display: block; border-radius: 6px; overflow: hidden; background: var(--panel); }
+.thumbs button:focus-visible, .media .main button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.thumbs img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; transition: transform .4s ease; }
+.thumbs button:hover img, .media .main button:hover img { transform: scale(1.03); }
+.media .main img { width: 100%; transition: transform .5s ease; }
+.qr-note { font-size: 13px; color: var(--fg-dim); }
+
+/* small projects */
+.minor { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(20px, 3vw, 36px); padding-block: clamp(40px, 6vw, 72px); border-top: 1px solid var(--line); }
+.minor article { min-width: 0; display: grid; gap: 14px; align-content: start; }
+.minor h3 { font-size: clamp(24px, 3vw, 32px); font-weight: 800; letter-spacing: -.01em; }
+.minor p { margin: 0; color: var(--fg-dim); }
+.minor .ph { display: grid; grid-template-columns: 1fr; }
+.minor .ph button { all: unset; cursor: zoom-in; border-radius: 6px; overflow: hidden; background: var(--panel); }
+.minor .ph img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+.minor .ph.tall img { object-position: center 30%; }
+.nda { padding-block: 0 clamp(40px, 6vw, 72px); color: var(--fg-dim); font-size: 14px; }
+
+/* CV */
+.cv { background: var(--panel); color: var(--ink); }
+.cv .sec-head h2 { color: var(--ink); }
+.cv .label { color: var(--ink-dim); }
+.cv-grid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(28px, 5vw, 72px); padding-bottom: clamp(56px, 8vw, 100px); }
+.cv-side, .cv-main { min-width: 0; display: grid; gap: 36px; align-content: start; }
+.cv h4 { font: 700 12px var(--f-mono); letter-spacing: .16em; text-transform: uppercase; margin: 0 0 12px; color: #b4532f; }
+.cv p { margin: 0; }
+.profile { font-size: clamp(17px, 1.6vw, 20px); line-height: 1.55; max-width: 62ch; }
+.skills { display: grid; gap: 16px; }
+.skills h5 { margin: 0 0 6px; font-size: 14px; font-weight: 700; }
+.skills ul { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 6px; }
+.skills li { font-size: 13px; padding: 3px 9px; background: #fff; border: 1px solid #d3d7d9; border-radius: 4px; }
+.plain { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.plain li { display: grid; gap: 1px; }
+.plain b { font-weight: 700; font-size: 15px; }
+.plain span { font-size: 14px; color: var(--ink-dim); }
+.plain .y { font-family: var(--f-mono); font-size: 12.5px; color: var(--ink-dim); font-variant-numeric: tabular-nums; }
+.job { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 4px 24px; padding-block: 22px; border-top: 1px solid #cdd2d4; }
+.job:first-of-type { border-top: 0; padding-top: 0; }
+.job .when { font-family: var(--f-mono); font-size: 13px; color: var(--ink-dim); font-variant-numeric: tabular-nums; padding-top: 3px; }
+.job h5 { margin: 0; font-size: 19px; font-weight: 800; }
+.job .role { font-weight: 600; margin: 2px 0 8px; }
+.job .note { font-size: 14px; color: var(--ink-dim); margin-bottom: 8px; }
+.job ul { margin: 0; padding-left: 1.1em; max-width: 68ch; }
+.job li { margin-bottom: 4px; }
+.job li::marker { color: #b4532f; }
+.robots { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 14px; }
+.robots div { background: #fff; border: 1px solid #d3d7d9; border-radius: 6px; padding: 12px; }
+.robots .k { font: 500 10.5px var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-dim); }
+.robots b { display: block; font-size: 17px; margin: 2px 0 4px; }
+.robots p { font-size: 13px; color: var(--ink-dim); line-height: 1.45; }
+.earlier { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.earlier li { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 24px; font-size: 14.5px; }
+.earlier .when { font-family: var(--f-mono); font-size: 13px; color: var(--ink-dim); font-variant-numeric: tabular-nums; }
+
+/* contact */
+.contact { padding-block: clamp(64px, 10vw, 130px); }
+.contact h2 { font-size: clamp(36px, 6vw, 72px); font-weight: 800; font-style: italic; color: var(--accent); letter-spacing: -.02em; line-height: 1.05; max-width: 16ch; }
+.contact-rows { display: grid; gap: 0; margin-top: 40px; border-top: 1px solid var(--line); max-width: 720px; }
+.row { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-block: 16px; border-bottom: 1px solid var(--line); }
+.row .v { font-size: clamp(17px, 2vw, 21px); font-weight: 600; user-select: all; overflow-wrap: anywhere; }
+.copy { all: unset; cursor: pointer; font: 500 12px var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--accent); padding: 6px 10px; border: 1px solid var(--line); border-radius: 999px; }
+.copy:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+footer { border-top: 1px solid var(--line); padding-block: 22px; color: var(--fg-dim); font-size: 13px; }
+
+/* lightbox */
+.lb { position: fixed; inset: 0; z-index: 50; background: rgba(8, 14, 18, .94); display: grid; place-items: center; padding: max(16px, env(safe-area-inset-top, 0px)) 16px max(16px, env(safe-area-inset-bottom, 0px)); }
+.lb img { max-width: 100%; max-height: 86vh; object-fit: contain; border-radius: 4px; }
+.lb figcaption { margin-top: 10px; text-align: center; color: var(--fg-dim); font-size: 13px; }
+.lb .x { position: absolute; top: calc(12px + env(safe-area-inset-top, 0px)); right: 16px; cursor: pointer; color: var(--fg); font: 500 13px var(--f-mono); letter-spacing: .1em; padding: 8px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--bg); }
+
+@media (max-width: 960px) {
+  .index ol { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .index li:nth-child(5) { border-left: 0; }
+  .index li:nth-child(n+5) { border-top: 1px solid var(--line); }
+  .case-grid, .cv-grid { grid-template-columns: minmax(0, 1fr); }
+  .case:nth-of-type(even) .case-text { order: 0; }
+}
+@media (max-width: 720px) {
+  .hero .wrap { grid-template-columns: minmax(0, 1fr); }
+  .hero-bot { width: min(70%, 300px); margin-top: -20px; }
+  .hero-actions { margin-bottom: 8px; }
+  .nav ul li:nth-child(1) { display: none; }
+  .index ol { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .index li { border-left: 0; border-top: 1px solid var(--line); }
+  .index li:nth-child(even) { border-left: 1px solid var(--line); }
+  .index li:nth-child(-n+2) { border-top: 0; }
+  .minor { grid-template-columns: minmax(0, 1fr); }
+  .robots { grid-template-columns: minmax(0, 1fr); }
+  .job, .earlier li { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .kpis { grid-template-columns: minmax(0, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="#top">TITO FAVARO</a>
+    <ul>
+      <li><a href="#index">Index</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#cv">CV</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <div class="hero-tags">
+        <span class="label">Robotic Hardware Product Designer</span>
+        <span class="label">Industrial Design · Human Factors · Robotics</span>
+      </div>
+      <h1>Hello,</h1>
+      <p class="lede">Designing humanoid and service robots from concept to real-world deployment.</p>
+      <ul class="facts">
+        <li><span class="label">Now</span><b>Senior Industrial Designer, PAL Robotics</b></li>
+        <li><span class="label">Based in</span><b>Barcelona · open to international roles</b></li>
+        <li><span class="label">Practice</span><b>20 years in product &amp; industrial design</b></li>
+      </ul>
+      <div class="hero-actions">
+        <a class="btn primary" href="#work">See the robots</a>
+        <a class="btn ghost" href="#cv">Read the CV</a>
+      </div>
+    </div>
+    <img class="hero-bot" src="img/hero-tiago.png" alt="TIAGo Pro robot head and shoulders" width="600" height="400">
+  </div>
+</header>
+
+<section class="index" id="index" aria-label="Project index">
+  <ol>
+    <li><a href="#kangaroo"><span class="yr">2023–2026</span><span class="nm">Kangaroo</span><span class="ty">Bipedal humanoid</span></a></li>
+    <li><a href="#tiago"><span class="yr">2022–2023</span><span class="nm">TIAGo Pro</span><span class="ty">Mobile manipulator</span></a></li>
+    <li><a href="#robocat"><span class="yr">2026</span><span class="nm">Robocat</span><span class="ty">Elderly-care assistant</span></a></li>
+    <li><a href="#ari"><span class="yr">2019–2021</span><span class="nm">ARI</span><span class="ty">Social robot</span></a></li>
+    <li><a href="#ivo"><span class="yr">2019–2020</span><span class="nm">IVO</span><span class="ty">Humanoid redesign</span></a></li>
+    <li><a href="#more"><span class="yr">2021</span><span class="nm">Omni Base</span><span class="ty">Omnidirectional platform</span></a></li>
+    <li><a href="#more"><span class="yr">2007–2009</span><span class="nm">Tibi &amp; Dabo</span><span class="ty">Urban robots</span></a></li>
+  </ol>
+</section>
+
+<main id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Selected work</h2>
+      <span class="label">PAL Robotics · IRI/UPC</span>
+    </div>
+
+    <article class="case" id="kangaroo">
+      <div class="case-grid">
+        <div class="case-text">
+          <h3>Kangaroo</h3>
+          <p class="sub">Bipedal Humanoid Platform</p>
+          <ul class="meta"><li class="yr">2023–2026</li><li>Industrial Design Lead</li><li>CNC aluminium</li></ul>
+          <dl class="spec">
+            <div><dt>Role</dt><dd>Industrial Design Lead. Hardware architecture, exterior design and mechanical integration.</dd></div>
+            <div><dt>Challenge</dt><dd>Kangaroo is the most mechanically complex platform at PAL Robotics. The design had to respect strict kinematic constraints while improving visual coherence and access to the internal hardware.</dd></div>
+            <div><dt>Contribution</dt><dd><ul>
+              <li>Exterior hardware design and cosmetic refinement</li>
+              <li>Integration of sensors and mechanical subsystems</li>
+              <li>Collaboration with mechanical and electronics engineering teams</li>
+              <li>Design for Manufacturing for CNC aluminium and structural components</li>
+              <li>Better access for maintenance and assembly</li>
+            </ul></dd></div>
+            <div><dt>Outcome</dt><dd>A visually coherent humanoid platform that balances complex bipedal mechanics with a clear robotic identity and improved serviceability.</dd></div>
+          </dl>
+        </div>
+        <div class="media">
+          <div class="main"><button type="button" data-full="img/kangaroo-lineup.jpg" aria-label="Enlarge: Kangaroo configurations"><img src="img/kangaroo-lineup.jpg" alt="Kangaroo humanoid in four configurations, one running" loading="lazy"></button></div>
+          <div class="thumbs">
+            <button type="button" data-full="img/kangaroo-detail.jpg" aria-label="Enlarge: Kangaroo arm detail"><img src="img/kangaroo-detail.jpg" alt="Close-up of Kangaroo arm joint" loading="lazy"></button>
+            <button type="button" data-full="img/kangaroo-hips.jpg" aria-label="Enlarge: Kangaroo hip actuators"><img src="img/kangaroo-hips.jpg" alt="Kangaroo pelvis with linear actuators" loading="lazy"></button>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="case" id="tiago">
+      <div class="case-grid">
+        <div class="case-text">
+          <h3>TIAGo Pro</h3>
+          <p class="sub">Mobile Manipulation Research Robot</p>
+          <ul class="meta"><li class="yr">2022–2023</li><li>Industrial Designer</li><li>Human factors</li></ul>
+          <dl class="spec">
+            <div><dt>Role</dt><dd>Industrial Designer. Human factors, hardware architecture and product design.</dd></div>
+            <div><dt>Challenge</dt><dd>Create a research robot platform that supports multiple applications while improving ergonomics, accessibility and scalability.</dd></div>
+            <div><dt>Contribution</dt><dd><ul>
+              <li>Anthropometric studies for human–robot interaction</li>
+              <li>Product architecture and arm integration</li>
+              <li>Hardware accessibility and modularity improvements</li>
+              <li>Mechanical integration of sensors and components</li>
+              <li>Sustainability-driven decisions that reduced part complexity</li>
+            </ul></dd></div>
+            <div><dt>Outcome</dt><dd>A more adaptable platform:
+              <div class="kpis">
+                <div class="kpi"><b>70%</b><span>better access for assembly and maintenance</span></div>
+                <div class="kpi"><b>30%</b><span>better alignment with user needs</span></div>
+                <div class="kpi"><b>50%</b><span>more scalable for future upgrades</span></div>
+              </div>
+            </dd></div>
+          </dl>
+        </div>
+        <div class="media">
+          <div class="main"><button type="button" data-full="img/tiago-pro.jpg" aria-label="Enlarge: TIAGo Pro"><img src="img/tiago-pro.jpg" alt="TIAGo Pro with two arms on an omnidirectional base" loading="lazy"></button></div>
+          <div class="thumbs">
+            <button type="button" data-full="img/tiago-d1.jpg" aria-label="Enlarge: base ventilation detail"><img src="img/tiago-d1.jpg" alt="Perforated base detail" loading="lazy"></button>
+            <button type="button" data-full="img/tiago-d3.jpg" aria-label="Enlarge: battery indicator and emergency stop"><img src="img/tiago-d3.jpg" alt="Battery LED bar and red emergency stop" loading="lazy"></button>
+            <button type="button" data-full="img/tiago-d2.jpg" aria-label="Enlarge: head light detail"><img src="img/tiago-d2.jpg" alt="Head with light guide" loading="lazy"></button>
+            <button type="button" data-full="img/tiago-d4.jpg" aria-label="Enlarge: TIAGo Pro front"><img src="img/tiago-d4.jpg" alt="TIAGo Pro front view" loading="lazy"></button>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="case" id="robocat">
+      <div class="case-grid">
+        <div class="case-text">
+          <h3>Robocat</h3>
+          <p class="sub">Assistive Robot for Elderly Care</p>
+          <ul class="meta"><li class="yr">2026</li><li>Industrial Designer</li><li>Interaction design</li></ul>
+          <dl class="spec">
+            <div><dt>Role</dt><dd>Industrial Designer. Product architecture and interaction design.</dd></div>
+            <div><dt>Challenge</dt><dd>Design a service robot for elderly users in assisted-living environments, balancing safety, accessibility and friendly interaction.</dd></div>
+            <div><dt>Contribution</dt><dd><ul>
+              <li>Exterior hardware design focused on approachability</li>
+              <li>Ergonomic interaction zones for users with limited mobility</li>
+              <li>Integration of sensors and user-interface elements</li>
+              <li>Work with robotics engineers to keep it technically feasible</li>
+            </ul></dd></div>
+            <div><dt>Outcome</dt><dd>A service robot concept for assisted living that keeps interaction trustworthy and accessible.</dd></div>
+          </dl>
+        </div>
+        <div class="media">
+          <div class="main"><button type="button" data-full="img/robocat.jpg" aria-label="Enlarge: Robocat"><img src="img/robocat.jpg" alt="Robocat assistive robot, front and three-quarter views" loading="lazy"></button></div>
+          <div class="thumbs">
+            <button type="button" data-full="img/robocat-call.jpg" aria-label="Enlarge: video call scenario"><img src="img/robocat-call.jpg" alt="Older woman starting a video call on Robocat's screen" loading="lazy"></button>
+            <button type="button" data-full="img/robocat-home.jpg" aria-label="Enlarge: Robocat at home"><img src="img/robocat-home.jpg" alt="Robocat in a living room" loading="lazy"></button>
+            <button type="button" data-full="img/robocat-detail.jpg" aria-label="Enlarge: Robocat tray detail"><img src="img/robocat-detail.jpg" alt="Robocat tray carrying a cup and book" loading="lazy"></button>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="case" id="ari">
+      <div class="case-grid">
+        <div class="case-text">
+          <h3>ARI</h3>
+          <p class="sub">Social Robotics Platform</p>
+          <ul class="meta"><li class="yr">2019–2021</li><li>Industrial Designer</li><li>Rotomoulding</li></ul>
+          <dl class="spec">
+            <div><dt>Role</dt><dd>Industrial Designer. Hardware design, ergonomics and HRI.</dd></div>
+            <div><dt>Challenge</dt><dd>Redesign a large research robot into a smaller, more affordable system while keeping its interaction capabilities.</dd></div>
+            <div><dt>Contribution</dt><dd><ul>
+              <li>Ergonomic studies for interaction distance and screen usability</li>
+              <li>Sensor integration, including RGB-D cameras and lidar</li>
+              <li>Safety analysis of pinch points and interaction zones</li>
+              <li>Design for Manufacturing for rotomoulded parts and structure</li>
+            </ul></dd></div>
+            <div><dt>Outcome</dt><dd>A social robot platform built for real-world interaction and research environments.</dd></div>
+          </dl>
+        </div>
+        <div class="media">
+          <div class="main"><button type="button" data-full="img/ari-cafe.jpg" aria-label="Enlarge: ARI in a café"><img src="img/ari-cafe.jpg" alt="Man using ARI's chest screen in a café" loading="lazy"></button></div>
+          <div class="thumbs">
+            <button type="button" data-full="img/ari.jpg" aria-label="Enlarge: ARI full body"><img src="img/ari.jpg" alt="ARI full-body side view" loading="lazy"></button>
+            <button type="button" data-full="img/ari-sketches.jpg" aria-label="Enlarge: ARI sketches and moodboard"><img src="img/ari-sketches.jpg" alt="ARI moodboard, sketches and reach studies" loading="lazy"></button>
+            <button type="button" data-full="img/ari-detail.jpg" aria-label="Enlarge: ARI shell details"><img src="img/ari-detail.jpg" alt="ARI shell part lines and details" loading="lazy"></button>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="case" id="ivo">
+      <div class="case-grid">
+        <div class="case-text">
+          <h3>IVO</h3>
+          <p class="sub">Humanoid Robot Redesign</p>
+          <ul class="meta"><li class="yr">2019–2020</li><li>Industrial Designer</li><li>Textile covers</li></ul>
+          <dl class="spec">
+            <div><dt>Role</dt><dd>Industrial Designer. Exterior redesign and product identity.</dd></div>
+            <div><dt>Challenge</dt><dd>Develop a new exterior identity for a humanoid robot and introduce textile covers as a new approach to robot appearance.</dd></div>
+            <div><dt>Contribution</dt><dd><ul>
+              <li>Cosmetic redesign of the humanoid platform</li>
+              <li>Textile covers explored as an alternative to rigid enclosures</li>
+              <li>Proportions and visual identity</li>
+            </ul></dd></div>
+            <div><dt>Outcome</dt><dd>A refreshed humanoid that uses softer materials for a more approachable appearance.</dd></div>
+          </dl>
+        </div>
+        <div class="media">
+          <div class="main"><button type="button" data-full="img/ivo.jpg" aria-label="Enlarge: IVO"><img src="img/ivo.jpg" alt="IVO humanoid with textile cover and chest screen" loading="lazy"></button></div>
+          <div class="thumbs">
+            <button type="button" data-full="img/ivo-home.jpg" aria-label="Enlarge: IVO at home"><img src="img/ivo-home.jpg" alt="IVO greeting an older woman at home" loading="lazy"></button>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <section class="minor" id="more" aria-label="More projects">
+      <article>
+        <div class="ph"><button type="button" data-full="img/omni-base.jpg" aria-label="Enlarge: omnidirectional base"><img src="img/omni-base.jpg" alt="White omnidirectional mobile base with mecanum wheels" loading="lazy"></button></div>
+        <ul class="meta" style="margin:0"><li class="yr">2021</li><li>Industrial Designer</li></ul>
+        <h3>Omnidirectional Base</h3>
+        <p>Exterior redesign and product identity for a mecanum-wheel mobile platform.</p>
+      </article>
+      <article>
+        <div class="ph tall"><button type="button" data-full="img/tibi.jpg" aria-label="Enlarge: Tibi robot"><img src="img/tibi.jpg" alt="Tibi urban robot in a Barcelona square" loading="lazy"></button></div>
+        <ul class="meta" style="margin:0"><li class="yr">2007–2009</li><li>Industrial Designer</li><li>IRI/UPC · URUS</li></ul>
+        <h3>Tibi &amp; Dabo</h3>
+        <p>Exterior redesign and product identity for two urban service robots built for public space in Barcelona.</p>
+      </article>
+    </section>
+    <p class="nda">More projects are available under NDA on request.</p>
+  </div>
+</main>
+
+<section class="cv" id="cv">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Curriculum</h2>
+      <span class="label">Senior Industrial Designer · Robotics Hardware &amp; Product Development</span>
+    </div>
+    <div class="cv-grid">
+      <aside class="cv-side">
+        <div>
+          <h4>Core strength</h4>
+          <p style="font-weight:700;font-size:18px;line-height:1.35">Turning technology into commercial products.</p>
+        </div>
+        <div class="skills">
+          <h4 style="margin:0">Technical skills</h4>
+          <div><h5>3D CAD &amp; Industrial Design</h5><ul><li>Autodesk Alias · Class-A</li><li>SolidWorks · expert</li><li>AutoCAD</li><li>Rhino 3D</li><li>Grasshopper</li><li>CAD assemblies</li><li>Surface modelling</li></ul></div>
+          <div><h5>Visual Communication</h5><ul><li>Illustrator · expert</li><li>Photoshop · expert</li><li>Sketchbook Pro</li><li>Vizcom</li><li>Rendering</li><li>Product identity</li></ul></div>
+          <div><h5>Product Engineering</h5><ul><li>Electromechanical integration</li><li>Mechanical packaging</li><li>DFMA</li><li>Prototyping</li><li>FEM simulation</li><li>Magics Materialise</li><li>Ergonomics &amp; human factors</li></ul></div>
+        </div>
+        <div>
+          <h4>Education</h4>
+          <ul class="plain">
+            <li><b>Degree in Industrial Design</b><span>Universitat Ramon Llull</span><span class="y">1999–2006</span></li>
+            <li><b>Official Master's, Art &amp; Design Curating in New Media</b><span>Universitat Ramon Llull</span><span class="y">2013–2014</span></li>
+            <li><b>HCI &amp; Interaction Design</b><span>Stanford University (Coursera)</span><span class="y">2012–2013</span></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Awards</h4>
+          <ul class="plain">
+            <li><b>DxR Design for Recycling Award</b><span class="y">2011</span></li>
+            <li><b>ADI-FAD Medal, top 10 final projects</b><span class="y">2005</span></li>
+            <li><b>DuPont Imagineering Design Awards</b><span class="y">2004</span></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Publications</h4>
+          <ul class="plain">
+            <li><b>Design of Social Robot</b><span>Chapter in “Design, Knowledge &amp; Future”</span></li>
+            <li><b>Tibi and Dabo: Designing Robots for Public Space in Barcelona</b><span>CIDIC Congress of Design &amp; Innovation</span></li>
+            <li><b>Additive Manufacturing as a Basis for Digital Production 2.0</b><span>COTEC Foundation, Madrid</span><span class="y">2011</span></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Languages</h4>
+          <ul class="plain">
+            <li><b>Spanish</b><span>Native</span></li>
+            <li><b>English</b><span>Professional working proficiency</span></li>
+          </ul>
+        </div>
+      </aside>
+
+      <div class="cv-main">
+        <div>
+          <h4>Profile</h4>
+          <p class="profile">Senior Industrial Designer specialising in robotics hardware and physical product development. I turn complex electromechanical systems into functional, manufacturable and user-centred products. My work spans humanoid and service robotics, advanced CAD surfacing, mechanical packaging, ergonomics and close collaboration with engineering, from early concepts and prototypes through to manufacturing.</p>
+        </div>
+
+        <div>
+          <h4>Experience</h4>
+          <div class="job">
+            <div class="when">2018 – now</div>
+            <div>
+              <h5>PAL Robotics</h5>
+              <p class="role">Senior Industrial Designer, Robotics Hardware &amp; Product Development · Barcelona</p>
+              <p class="note">Project contract Oct 2018 – Sep 2019, then in-house Senior Robotics Hardware Designer from Sep 2019.</p>
+              <ul>
+                <li>Own exterior hardware design for humanoid, service and mobile-manipulation robots, from concepts and functional prototypes to manufacturing</li>
+                <li>Integrate actuators, encoders, sensors, cameras, PCBs and computers into robot architectures</li>
+                <li>Exterior enclosures, mechanical interfaces and Class-A surfaces; complex CAD assemblies</li>
+                <li>DFMA for industrial 3D printing, CNC aluminium and sheet metal; prototyping, accessibility and maintainability</li>
+                <li>Ergonomics, anthropometrics and physical human–robot interaction; product identity and formal language across platforms</li>
+                <li>Work with mechanical, electronics, control, navigation and HRI teams to balance engineering, interaction, visual quality, cost and production</li>
+                <li>Contributed to several commercial robots, cutting parts and materials through modular, serviceable enclosures</li>
+              </ul>
+              <div class="robots">
+                <div><span class="k">Social robot</span><b>ARI</b><p>Design and product development, combining appearance, ergonomics and engineering requirements.</p></div>
+                <div><span class="k">Mobile manipulator</span><b>TIAGo Pro</b><p>Arm architecture, component integration, accessibility and ergonomics.</p></div>
+                <div><span class="k">Bipedal robot</span><b>Kangaroo</b><p>External design, proportions, actuator integration, cable management and packaging.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="job">
+            <div class="when">2017 – 2018</div>
+            <div>
+              <h5>Hewlett-Packard (HP)</h5>
+              <p class="role">Customer Experience Design Lead, Ergonomics · Sant Cugat del Vallès</p>
+              <p class="note">Contractor through Nacar Design. Led human factors for Large Format Printers and Multi Jet Fusion 3D printing.</p>
+              <ul>
+                <li>Single point of contact for ergonomic attributes across the Large Format and 3D Printing divisions</li>
+                <li>User research and usability clinics for HMI concepts and physical interaction with hardware</li>
+                <li>Turned research, benchmarking and standards into product and design requirements</li>
+                <li>Early ergonomic validation that reduced late-stage design changes</li>
+              </ul>
+            </div>
+          </div>
+          <div class="job">
+            <div class="when">2015 – 2017</div>
+            <div>
+              <h5>IDEADED</h5>
+              <p class="role">Strategic Industrial Designer, R&amp;D · Barcelona</p>
+              <ul>
+                <li>Strategic design for future intelligent machinery, from user needs to product architecture</li>
+                <li>Turned user insights into use cases, workflows and hardware specifications</li>
+                <li>Coordinated multidisciplinary teams from concept through validation</li>
+              </ul>
+            </div>
+          </div>
+          <div class="job">
+            <div class="when">2007 – 2018</div>
+            <div>
+              <h5>Universitat Ramon Llull · ESDi</h5>
+              <p class="role">Product Design &amp; Applied Research Lead, Guest Lecturer in Applied Ergonomics &amp; Product Design</p>
+              <p class="note">Also IED, ATP and UAB. Applied research including URUS urban robots (IRI/UPC) and eco-designed cleaning trolleys, with 80 units deployed.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4>Earlier experience · 2006 – 2015</h4>
+          <ul class="earlier">
+            <li><span class="when">2013 – 2015</span><span><b>Xavier Garcia Barcelona</b> · Eyewear Designer. Metal collections, facial ergonomics, 3D printing</span></li>
+            <li><span class="when">2010 – 2011</span><span><b>ADI-FAD</b> · Board Member; Delta Awards juror (2013)</span></li>
+            <li><span class="when">2009</span><span><b>CAF</b> · Human Factors Design Consultant, rail sector</span></li>
+            <li><span class="when">2006 – 2007</span><span><b>Applus+</b> · 3D Printing Engineer</span></li>
+            <li><span class="when">2006</span><span><b>EVALUZ</b> · Lighting Designer</span></li>
+            <li><span class="when">2006</span><span><b>GAIG TOUS</b> · Jewellery Designer</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <span class="label">Contact</span>
+    <h2 style="margin-top:14px">Let's build the next robot.</h2>
+    <div class="contact-rows">
+      <div class="row"><span class="v" id="mail">design@titofavaro.com</span><button class="copy" type="button" data-copy="mail">Copy</button></div>
+      <div class="row"><a class="v" href="https://www.linkedin.com/in/titofavaro" target="_blank" rel="noopener">linkedin.com/in/titofavaro ↗</a></div>
+      <div class="row"><span class="v">Barcelona · open to international opportunities</span></div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">© Tito Favaro · Robotic Hardware Product Designer</div></footer>
+
+<figure class="lb" id="lb" hidden>
+  <button class="x" type="button" id="lbx">Close ✕</button>
+  <div><img id="lbimg" alt=""><figcaption id="lbcap"></figcaption></div>
+</figure>
+
+<script>
+(function () {
+  var lb = document.getElementById('lb'), img = document.getElementById('lbimg'), cap = document.getElementById('lbcap'), last = null;
+  document.querySelectorAll('[data-full]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      last = b;
+      var inner = b.querySelector('img');
+      img.src = b.getAttribute('data-full');
+      img.alt = inner ? inner.alt : '';
+      cap.textContent = img.alt;
+      lb.hidden = false;
+      document.getElementById('lbx').focus();
+    });
+  });
+  function close() { lb.hidden = true; img.removeAttribute('src'); if (last) last.focus(); }
+  lb.addEventListener('click', function (e) { if (e.target !== img) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !lb.hidden) close(); });
+
+  document.querySelectorAll('[data-copy]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var el = document.getElementById(btn.getAttribute('data-copy'));
+      var txt = el.textContent.trim();
+      function selectIt() { var r = document.createRange(); r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = 'Selected'; }
+      try {
+        navigator.clipboard.writeText(txt).then(function () { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy'; }, 1800); }, selectIt);
+      } catch (e) { selectIt(); }
+    });
+  });
+})();
+</script>
+</body>
+</html>
